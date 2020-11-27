@@ -12,19 +12,20 @@ function getSquares() {
     generateShip2(3)
     generateShip3(2)
     generateShip4(1)
+    
 }
 getSquares()
 
-// let usedNumber = []
+let usedNumber = []
 
 function generateShip1(num) {
-    let usedNumber = []
+
     for (let x = 0; x < num; x++) {
         let random = Math.round(Math.random()*100)
-        usedNumber.push(random)
+        // usedNumber.push(random)
         document.getElementById(`${random}`).classList.add('ship')
     }
-    console.log(usedNumber)
+    
 }
 function generateShip2(num) {
     for (let x = 0; x < num; x++) {
@@ -76,6 +77,11 @@ function generateShip4(num) {
 
 
 function openCell(event) {
-    console.log(event.target.classList)
-    console.log(event.target.id)
+    if (event.target.classList[1] === "ship") {
+        event.path[0].style.backgroundColor = 'red'
+    } else {
+        event.path[0].style.backgroundColor = 'gray'
+    }
+    
+    console.log(event)
 }
